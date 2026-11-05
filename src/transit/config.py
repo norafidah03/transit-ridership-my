@@ -17,3 +17,10 @@ GTFS_REALTIME_URL = "https://api.data.gov.my/gtfs-realtime/vehicle-position/pras
 
 # OpenDOSM population by district
 POPULATION_DISTRICT_URL = "https://storage.dosm.gov.my/population/population_district.parquet"
+
+# Which GTFS rail route feeds which ridership series. Ampang and Sri Petaling lines are reported
+# together in the ridership data, so both routes map to one series. BRT Sunway has no series.
+RAIL_ROUTE_TO_SERIES = {
+    "AG": "rail_lrt_ampang", "PH": "rail_lrt_ampang", "KJ": "rail_lrt_kj",
+    "KGL": "rail_mrt_kajang", "PYL": "rail_mrt_pjy", "MR": "rail_monorail", "SA": "rail_lrt_shah_alam",
+}
