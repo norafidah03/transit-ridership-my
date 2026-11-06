@@ -1,7 +1,15 @@
 [theme]
 base = "light"
-primaryColor = "#2a78d6"
-backgroundColor = "#fcfcfb"
-secondaryBackgroundColor = "#f0efec"
-textColor = "#0b0b0b"
-font = "sans serif"
+primaryColor = "#13233F"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F2F4F7"
+textColor = "#13233F"
+linkColor = "#1F5FAF"
+borderColor = "#D7DDE5"
+font = "Overpass:https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700;800&display=swap, sans-serif"
+headingFont = "Overpass:https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700;800&display=swap, sans-serif"
+headingFontWeights = [800, 700, 700, 600, 600, 600]
+baseRadius = "6px"
+showWidgetBorder = true
+dataframeHeaderBackgroundColor = "#F2F4F7"
+chartCategoricalColors = ["#D50032", "#047940", "#E57200", "#008C9E", "#C99700", "#3C5A9F", "#7A9E00", "#B5179E"]

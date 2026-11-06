@@ -1,0 +1,105 @@
+/* Transit Insight: wayfinding-inspired styling layered on Streamlit's theme (.streamlit/config.toml).
+   Keep this file small: Streamlit's internal class names can change between versions. */
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
+
+:root {
+  --ti-navy: #13233F;
+  --ti-slate: #52627A;
+  --ti-rail: #D7DDE5;
+  --ti-platform: #F2F4F7;
+  --ti-alert: #C8102E;
+  --ti-serif: "Source Serif 4", Georgia, serif;
+  --ti-sans: "Overpass", system-ui, sans-serif;
+}
+
+.block-container { max-width: 1180px; padding-top: 2.2rem; }
+
+/* Header */
+.ti-header { border-bottom: 3px solid var(--ti-navy); padding-bottom: 1.1rem; margin-bottom: 0.4rem; }
+.ti-title { font: 800 2.6rem/1.05 var(--ti-sans); color: var(--ti-navy); letter-spacing: -0.02em; margin: 0; }
+.ti-title span { display: block; font-weight: 600; font-size: 1.35rem; letter-spacing: 0; color: var(--ti-slate); margin-top: 0.35rem; }
+.ti-tagline { font: 400 1.15rem/1.5 var(--ti-serif); color: var(--ti-navy); margin: 0.7rem 0 0; max-width: 62ch; }
+.ti-meta { font: 400 0.85rem/1.4 var(--ti-sans); color: var(--ti-slate); margin-top: 0.7rem; }
+.ti-meta a { color: var(--ti-slate); }
+
+/* Tabs as a platform sign */
+.stTabs [data-baseweb="tab-list"] { gap: 0.25rem; border-bottom: 1px solid var(--ti-rail); flex-wrap: wrap; }
+.stTabs [data-baseweb="tab"] { font-family: var(--ti-sans); font-weight: 600; padding: 0.6rem 0.9rem; }
+.stTabs [aria-selected="true"] { color: var(--ti-navy); }
+.stTabs [data-baseweb="tab-highlight"] { background-color: var(--ti-navy); height: 3px; }
+
+/* Chart titles state the finding */
+.ti-chart-title { font: 700 1.12rem/1.35 var(--ti-sans) !important; color: var(--ti-navy); margin: 1.6rem 0 0 !important; padding: 0 !important; max-width: 60ch; }
+
+/* Narrative text */
+.ti-prose { font: 400 1.08rem/1.65 var(--ti-serif); color: var(--ti-navy); max-width: 68ch; }
+.ti-prose p { margin: 0 0 0.8rem; }
+.ti-question { font: 700 1.5rem/1.25 var(--ti-sans); color: var(--ti-navy); margin: 0.4rem 0 0.3rem; max-width: 40ch; }
+.ti-answer { font: 400 1.15rem/1.55 var(--ti-serif); color: var(--ti-navy); margin: 0 0 1rem; max-width: 64ch; }
+.ti-means { border-left: 4px solid var(--ti-navy); background: var(--ti-platform); padding: 0.9rem 1.1rem; margin: 1.2rem 0 0.5rem; border-radius: 0 6px 6px 0; }
+.ti-means h4 { font: 700 0.95rem/1.3 var(--ti-sans); margin: 0 0 0.3rem; color: var(--ti-navy); }
+.ti-means p { font: 400 1rem/1.55 var(--ti-serif); margin: 0; color: var(--ti-navy); max-width: 70ch; }
+.ti-part { font: 700 1.15rem/1.3 var(--ti-sans); color: var(--ti-navy); margin: 1.6rem 0 0.2rem; padding-top: 1rem; border-top: 1px solid var(--ti-rail); }
+.ti-note { font: 400 0.85rem/1.45 var(--ti-sans); color: var(--ti-slate); max-width: 80ch; }
+
+/* Route strip: the signature element */
+.ti-route { margin: 1.6rem 0 1.4rem; }
+.ti-route ol { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; padding: 0; position: relative; }
+.ti-route ol::before { content: ""; position: absolute; top: 13px; left: 16.66%; right: 16.66%; height: 6px; background: var(--ti-navy); border-radius: 3px;
+  transform-origin: left; animation: ti-draw 900ms ease-out both; }
+.ti-route li { position: relative; text-align: center; padding: 0 0.8rem; }
+.ti-dot { display: block; width: 32px; height: 32px; margin: 0 auto 0.7rem; border-radius: 50%; background: #fff; border: 6px solid var(--ti-navy); position: relative; z-index: 1; }
+.ti-route .ti-stop { font: 700 1.05rem/1.25 var(--ti-sans); color: var(--ti-navy); }
+.ti-route .ti-num { font: 800 2rem/1.1 var(--ti-sans); color: var(--ti-navy); margin: 0.45rem 0 0.15rem; letter-spacing: -0.01em; }
+.ti-route .ti-num-label { font: 400 0.88rem/1.35 var(--ti-sans); color: var(--ti-slate); }
+.ti-route .ti-take { font: 400 0.98rem/1.45 var(--ti-serif); color: var(--ti-navy); margin-top: 0.55rem; }
+.ti-route .ti-go { font: 600 0.8rem/1.3 var(--ti-sans); color: var(--ti-slate); margin-top: 0.5rem; }
+@keyframes ti-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* "You are here" strip at the top of each objective tab */
+.ti-here { display: flex; align-items: center; gap: 0; margin: 0.8rem 0 0.6rem; font: 600 0.85rem/1.2 var(--ti-sans); color: var(--ti-slate); flex-wrap: wrap; }
+.ti-here span { display: inline-flex; align-items: center; gap: 0.45rem; }
+.ti-here i { width: 14px; height: 14px; border-radius: 50%; border: 3px solid var(--ti-rail); background: #fff; display: inline-block; }
+.ti-here b { width: 48px; height: 3px; background: var(--ti-rail); display: inline-block; margin: 0 0.5rem; }
+.ti-here .on { color: var(--ti-navy); }
+.ti-here .on i { border-color: var(--ti-navy); background: var(--ti-navy); }
+
+/* KPI tiles */
+.ti-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.8rem; margin: 0.8rem 0 1rem; }
+.ti-kpi { border: 1px solid var(--ti-rail); border-top: 4px solid var(--ti-navy); border-radius: 6px; padding: 0.8rem 1rem 0.9rem; background: #fff; }
+.ti-kpi.alert { border-top-color: var(--ti-alert); }
+.ti-kpi .v { font: 800 1.9rem/1.1 var(--ti-sans); color: var(--ti-navy); }
+.ti-kpi .l { font: 600 0.9rem/1.3 var(--ti-sans); color: var(--ti-navy); margin-top: 0.25rem; }
+.ti-kpi .c { font: 400 0.84rem/1.4 var(--ti-sans); color: var(--ti-slate); margin-top: 0.35rem; }
+
+/* Finding cards */
+.ti-finding { display: grid; grid-template-columns: 180px 1fr; gap: 1.2rem; border-top: 1px solid var(--ti-rail); padding: 1.2rem 0; }
+.ti-finding .tag { font: 700 0.85rem/1.3 var(--ti-sans); color: var(--ti-navy); display: flex; align-items: flex-start; gap: 0.5rem; }
+.ti-finding .tag i { flex: none; width: 12px; height: 12px; border-radius: 50%; background: var(--ti-navy); margin-top: 0.15rem; }
+.ti-finding h3 { font: 700 1.2rem/1.3 var(--ti-sans) !important; color: var(--ti-navy); margin: 0 0 0.4rem; padding: 0 !important; }
+.ti-finding .ev { font: 400 0.92rem/1.5 var(--ti-sans); color: var(--ti-slate); margin: 0 0 0.6rem; max-width: 78ch; }
+.ti-finding .rec { font: 400 1.02rem/1.55 var(--ti-serif); color: var(--ti-navy); margin: 0; max-width: 70ch; }
+.ti-finding .rec strong { font-family: var(--ti-sans); font-weight: 700; }
+.ti-finding .check { font: 400 0.85rem/1.45 var(--ti-sans); color: var(--ti-slate); margin-top: 0.45rem; }
+
+/* Methodology */
+.ti-method h3 { font: 700 1.15rem/1.3 var(--ti-sans) !important; margin: 1.4rem 0 0.4rem !important; }
+.ti-method p, .ti-method li { font: 400 1rem/1.6 var(--ti-serif); color: var(--ti-navy); max-width: 72ch; }
+.ti-method dt { font: 700 0.95rem/1.4 var(--ti-sans); color: var(--ti-navy); margin-top: 0.6rem; }
+.ti-method dd { font: 400 1rem/1.55 var(--ti-serif); margin: 0.1rem 0 0; color: var(--ti-navy); max-width: 70ch; }
+
+a:focus-visible, button:focus-visible { outline: 3px solid #1F5FAF; outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) { .ti-route ol::before { animation: none; } }
+
+@media (max-width: 720px) {
+  .ti-title { font-size: 1.9rem; }
+  .ti-title span { font-size: 1.1rem; }
+  .ti-route ol { grid-template-columns: 1fr; gap: 1.3rem; }
+  .ti-route ol::before { top: 16px; bottom: 16px; left: 13px; right: auto; width: 6px; height: auto; transform-origin: top; animation-name: ti-draw-v; }
+  .ti-route li { text-align: left; padding: 0 0 0 3.2rem; }
+  .ti-dot { position: absolute; left: 0; top: 0; margin: 0; }
+  .ti-finding { grid-template-columns: 1fr; gap: 0.4rem; }
+  .ti-here b { width: 20px; }
+}
+@keyframes ti-draw-v { from { transform: scaleY(0); } to { transform: scaleY(1); } }
