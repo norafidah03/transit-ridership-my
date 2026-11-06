@@ -90,7 +90,7 @@ px.histogram(bus_routes, x="avg_headway_min", color="feed", nbins=24,
 
 # %% [markdown]
 # ## 4. Q4 · Bus stops: how many buses per hour in the morning peak?
-# Counts every route that stops there. Fewer than 2 buses an hour means an average wait over 15 min
+# Counts every route that stops there. 2 or fewer buses an hour means an average wait of 15 min or more
 # (if you arrive at a random time you wait half the gap on average).
 
 # %%
@@ -99,13 +99,13 @@ stops = pd.concat([
     for c in ["rapid-bus-kl", "rapid-bus-mrtfeeder"]
 ])
 stops["band"] = pd.cut(stops.per_hour, [-0.1, 0, 2, 4, 8, 1000],
-                       labels=["none at peak", "under 2/h", "2–4/h", "4–8/h", "8+/h"])
+                       labels=["none at peak", "up to 2/h", "2–4/h", "4–8/h", "8+/h"])
 stops.band.value_counts().sort_index()
 
 # %%
 px.scatter_map(stops, lat="stop_lat", lon="stop_lon", color="band", hover_name="stop_name",
                hover_data={"per_hour": True, "routes": True, "stop_lat": False, "stop_lon": False},
-               category_orders={"band": ["none at peak", "under 2/h", "2–4/h", "4–8/h", "8+/h"]},
+               category_orders={"band": ["none at peak", "up to 2/h", "2–4/h", "4–8/h", "8+/h"]},
                color_discrete_sequence=["#7f0000", "#d7301f", "#fc8d59", "#91bfdb", "#4575b4"],
                zoom=10, height=700, title="Buses per hour at each stop, weekday 7–9am")
 

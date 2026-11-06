@@ -74,8 +74,9 @@ def festival_curve(long: pd.DataFrame, cal: pd.DataFrame, group: str, before: in
 
     Day 0 is the day itself (e.g. "Hari Raya Puasa"), not its second day or replacement holiday.
     """
-    main = {v: k for k, v in HOLIDAY_GROUPS.items()}[group]
-    firsts = cal[(cal.date >= since) & cal.holiday.str.split("; ").apply(lambda ns: main in ns)].date
+    # The main day is the one without "Cuti" (replacement) or "(Hari Kedua)" / "(pergantian hari)".
+    is_main = lambda n: _group(n) == group and not n.startswith("Cuti") and "(" not in n
+    firsts = cal[(cal.date >= since) & cal.holiday.str.split("; ").apply(lambda ns: any(map(is_main, ns)))].date
     rows = []
     for d0 in firsts:
         win = long[(long.date >= d0 - pd.Timedelta(days=before)) & (long.date <= d0 + pd.Timedelta(days=after))]

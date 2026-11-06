@@ -34,7 +34,7 @@ Rapid Bus KL, MRT feeder buses). All numbers are for a normal weekday. Morning p
 - 80% of city routes and 65% of feeder routes run less often than every 20 minutes.
 - 34 city routes have 1 or 2 buses in the whole 7 to 9am window (a 60 to 120 min wait), mostly in outer areas:
   Banting, Puncak Alam, Batu Arang, Selayang, Kajang (450), Shah Alam (752, 753) and Subang (770).
-- Stops: of ~6,200 bus stops, about half (3,133) get **fewer than 2 buses an hour** at peak, and 54 get none.
+- Stops: of ~6,200 bus stops, about half (3,133) get **2 or fewer buses an hour** at peak (a bus every 30 min or worse), and 54 get none.
   Only 427 stops get 8 or more per hour, mostly in the city centre (KL Sentral gets ~31/h).
 
 ## Caveats
