@@ -12,6 +12,10 @@ RIDERSHIP_HEADLINE_URL = "https://storage.data.gov.my/transportation/ridership_h
 GTFS_STATIC_BASE = "https://api.data.gov.my/gtfs-static/prasarana"
 GTFS_CATEGORIES = ["rapid-rail-kl", "rapid-bus-kl", "rapid-bus-mrtfeeder"]
 
+# GTFS static for KTM (Komuter, ETS, Intercity). Klang Valley Komuter = these two route_ids.
+GTFS_KTMB_URL = "https://api.data.gov.my/gtfs-static/ktmb"
+KTM_KOMUTER_KV_ROUTES = ["KA15_KD19", "KC05_KB18"]  # Port Klang Line, Seremban Line
+
 # GTFS realtime vehicle positions (protobuf), used for the stretch goal
 GTFS_REALTIME_URL = "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-kl"
 

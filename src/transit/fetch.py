@@ -33,6 +33,7 @@ def fetch_gtfs() -> None:
     stamp = date.today().isoformat()
     for cat in config.GTFS_CATEGORIES:
         _download(f"{config.GTFS_STATIC_BASE}?category={cat}", f"gtfs_{cat}_{stamp}.zip")
+    _download(config.GTFS_KTMB_URL, f"gtfs_ktmb_{stamp}.zip")
 
 
 def fetch_population() -> None:
