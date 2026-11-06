@@ -3,6 +3,8 @@
 Analysing Malaysia's open public transport data (data.gov.my, OpenDOSM, Prasarana GTFS) to answer:
 how has ridership recovered, when are lines busiest relative to service, and which areas are under-served?
 
+**Live dashboard: https://transit-ridership-my-4jhdrpw8kh8u6rx4nb9vc8.streamlit.app/**
+
 See [docs/PLAN.md](docs/PLAN.md) for the full plan.
 
 ## Quick start
