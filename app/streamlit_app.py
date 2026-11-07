@@ -18,7 +18,7 @@ APP = Path(__file__).parent
 DATA = APP / "data"
 
 # Paste your repo link here to show a "Code on GitHub" link in the header.
-GITHUB_URL = ""
+GITHUB_URL = "https://github.com/norafidah03/transit-ridership-my"
 
 # One colour per line, everywhere. Taken from each line's colour in the GTFS timetable feeds, adjusted so
 # all eight stay distinguishable for colour-blind readers (checked with a palette validator).
