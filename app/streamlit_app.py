@@ -77,7 +77,7 @@ def html(s):
 
 
 def here(active):
-    stops_ = ["Recovery", "Peak demand vs service", "Underserved areas"]
+    stops_ = ["Recovery", "Peak Demand vs Service", "Underserved Areas"]
     parts = []
     for i, s in enumerate(stops_):
         parts.append(f'<span class="{"on" if s == active else ""}"><i></i>{s}</span>')
@@ -140,8 +140,8 @@ html(f"""
   population {meta['population_year']} from OpenDOSM{gh}</p>
 </header>""")
 
-tabs = st.tabs(["Overview", "Recovery", "Peak demand vs service", "Underserved areas",
-                "Findings & recommendations", "Methodology & data"])
+tabs = st.tabs(["Overview", "Recovery", "Peak Demand vs Service", "Underserved Areas",
+                "Findings & Recommendations", "Methodology & Data"])
 
 # ---------------------------------------------------------------------------------------------- Overview
 with tabs[0]:
@@ -164,13 +164,13 @@ with tabs[0]:
       <div class="ti-num">{top_crowd.riders_per_train_hour:,.0f}</div>
       <div class="ti-num-label">weekday riders per train-hour on {top_crowd.line}, the highest</div>
       <div class="ti-take">{top_crowd.line} is the most stretched line, and the typical bus comes every {median_wait:.0f} minutes at peak.</div>
-      <div class="ti-go">Details in the Peak demand vs service tab</div></li>
+      <div class="ti-go">Details in the Peak Demand vs Service tab</div></li>
     <li><span class="ti-dot"></span>
       <div class="ti-stop">Underserved areas</div>
       <div class="ti-num">1 per {worst_big.residents_per_bus_stop:,.0f}</div>
       <div class="ti-num-label">residents per Rapid KL bus stop in {worst_big.area}, vs 1 per {kl.residents_per_bus_stop:,.0f} in Kuala Lumpur</div>
       <div class="ti-take">{worst_big.area} gets about 1/{service_ratio:.0f} of Kuala Lumpur's peak service per resident.</div>
-      <div class="ti-go">Details in the Underserved areas tab</div></li>
+      <div class="ti-go">Details in the Underserved Areas tab</div></li>
   </ol>
 </nav>""")
 
@@ -184,7 +184,7 @@ with tabs[0]:
     html(f"""<div class="ti-means"><h4>Three things to take away</h4><p>
     Demand has returned, so the question now is capacity, not recovery. The pressure points are {top_crowd.line} at peak
     and bus frequency everywhere. The biggest coverage gap is {worst_big.area}, an area of {worst_big.population / 1e6:.1f} million people.
-    The Findings &amp; recommendations tab turns each of these into an action.</p></div>""")
+    The Findings &amp; Recommendations tab turns each of these into an action.</p></div>""")
 
 # ---------------------------------------------------------------------------------------------- Recovery
 with tabs[1]:
@@ -221,7 +221,7 @@ with tabs[1]:
 
 # -------------------------------------------------------------------------------- Peak demand vs service
 with tabs[2]:
-    here("Peak demand vs service")
+    here("Peak Demand vs Service")
     intro("When are lines busiest, and is the service sized to match?",
           f"Demand follows the working week and the festival calendar very predictably. Measured against the trains it runs, "
           f"{top_crowd.line} carries the most riders, while buses run too rarely for a commuter network.")
@@ -281,7 +281,7 @@ with tabs[2]:
 
 # ------------------------------------------------------------------------------------- Underserved areas
 with tabs[3]:
-    here("Underserved areas")
+    here("Underserved Areas")
     intro("Which areas have many people but little public transport?",
           f"{worst_big.area}. It is home to {worst_big.population / 1e6:.1f} million people but has one Rapid KL bus stop per "
           f"{worst_big.residents_per_bus_stop:,.0f} residents, against one per {kl.residents_per_bus_stop:,.0f} in Kuala Lumpur. "
@@ -360,19 +360,19 @@ FINDINGS = [
      f"The original 4 lines were at {rec_ratio:.0%} of 2019 in {rec_year}. Kelana Jaya was at 96% in Jan to Aug 2026, with a flat trend since 2025.",
      "Investigate why Kelana Jaya lags (service disruptions, riders moving to MRT Putrajaya, changing work patterns in its corridor) before adding capacity elsewhere.",
      "Data that would confirm it: station-level ridership and disruption logs."),
-    ("Peak demand vs service", f"{top_crowd.line} is the most stretched rail line",
+    ("Peak Demand vs Service", f"{top_crowd.line} is the most stretched rail line",
      f"{top_crowd.riders_per_train_hour:,.0f} weekday riders per scheduled train-hour, against {kj_crowd.riders_per_train_hour:,.0f} on Kelana Jaya. Trains run every 6 minutes at peak against every 4.",
      f"Prioritise {top_crowd.line} for additional peak trains.",
      "Data that would confirm it: passenger load counts per train."),
-    ("Peak demand vs service", "Demand swings predictably with the calendar",
+    ("Peak Demand vs Service", "Demand swings predictably with the calendar",
      "Weekday holidays cut commuter ridership to about half while Intercity more than doubles. The Raya and CNY curves repeat each year.",
      "Plan holiday timetables from these curves: fewer commuter trains on holidays, and more ETS and Intercity capacity 3 to 4 days before and after major festivals.",
      "Data that would confirm it: ticket sales by day for ETS and Intercity."),
-    ("Underserved areas", "Bus frequency, not rail, is the network's main weakness",
+    ("Underserved Areas", "Bus frequency, not rail, is the network's main weakness",
      f"The typical bus route runs every {median_wait:.0f} minutes at peak, {share_over_20:.0%} of routes run less often than every 20 minutes, and {share_thin_stops:.0%} of stops get 2 or fewer buses an hour.",
      f"Set a minimum peak frequency standard, for example every 15 to 20 minutes on trunk and feeder routes, starting with the {n_thin_routes} routes that run only 1 or 2 buses at peak.",
      "Data that would confirm it: bus boardings by route and stop."),
-    ("Underserved areas", f"{worst_big.area} has far less Rapid KL service than its population suggests",
+    ("Underserved Areas", f"{worst_big.area} has far less Rapid KL service than its population suggests",
      f"{worst_big.population / 1e6:.2f} million residents and one bus stop per {worst_big.residents_per_bus_stop:,.0f} people, against one per {kl.residents_per_bus_stop:,.0f} in Kuala Lumpur. Peak service per resident is about 1/{service_ratio:.0f} of Kuala Lumpur's.",
      f"Treat {worst_big.area} as the first candidate for network expansion, after confirming how much Smart Selangor and private buses already cover.",
      "Data that would confirm it: timetables for Smart Selangor and private stage buses."),
