@@ -131,7 +131,7 @@ n_thin_routes = (routes.peak_trips <= 2).sum()
 share_thin_stops = (stops.per_hour <= 2).mean()
 
 # ------------------------------------------------------------------------------------------------ header
-gh = f' · <a href="{GITHUB_URL}">Code on GitHub</a>' if GITHUB_URL else ""
+gh = f' · <a href="{GITHUB_URL}" target="_blank" rel="noopener">Code on GitHub</a>' if GITHUB_URL else ""
 html(f"""
 <header class="ti-header">
   <h1 class="ti-title">Transit Insight<span>Klang Valley Mobility Analytics</span></h1>
@@ -402,11 +402,11 @@ with tabs[5]:
 
   <h3>Data sources</h3>
   <ul>
-    <li><a href="https://data.gov.my/data-catalogue/ridership_headline">Daily public transport ridership</a>, data.gov.my,
+    <li><a href="https://data.gov.my/data-catalogue/ridership_headline" target="_blank" rel="noopener">Daily public transport ridership</a>, data.gov.my,
         {meta['ridership_from']} to {meta['ridership_to']}.</li>
     <li>GTFS timetables for Rapid Rail, Rapid Bus KL and MRT feeder buses (Prasarana) and KTM, via
-        <a href="https://developer.data.gov.my/realtime-api/gtfs-static">api.data.gov.my</a>, snapshot of {meta['gtfs_snapshot']}.</li>
-    <li>Population by district, <a href="https://open.dosm.gov.my/data-catalogue/population_district">OpenDOSM</a>,
+        <a href="https://developer.data.gov.my/realtime-api/gtfs-static" target="_blank" rel="noopener">api.data.gov.my</a>, snapshot of {meta['gtfs_snapshot']}.</li>
+    <li>Population by district, <a href="https://open.dosm.gov.my/data-catalogue/population_district" target="_blank" rel="noopener">OpenDOSM</a>,
         {meta['population_year']} estimates.</li>
     <li>Malaysian public holidays for Kuala Lumpur from the open-source <code>holidays</code> Python package.</li>
   </ul>

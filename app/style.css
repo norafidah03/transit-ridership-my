@@ -12,7 +12,8 @@
   --ti-sans: "Overpass", system-ui, sans-serif;
 }
 
-.block-container { max-width: 1180px; padding-top: 2.2rem; }
+/* Leave room for Streamlit's fixed toolbar at the top, or the title slides under it. */
+.block-container, [data-testid="stMainBlockContainer"] { max-width: 1180px; padding-top: 5rem; }
 
 /* Header */
 .ti-header { border-bottom: 3px solid var(--ti-navy); padding-bottom: 1.1rem; margin-bottom: 0.4rem; }
